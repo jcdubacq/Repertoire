@@ -3,15 +3,19 @@ Frame.id
 Frame.canonicalName
 Frame.properties[type]=[propertyId]
 Frame.parents=[frameId]
-Frame.recompute()
-Frame.children()
+Frame.children=[frameId]
+Frame.recompute() {
+// do what?
+}
 
 Property.id
+Property.owner
 Property.type
 Property.subtype
 Property.customName
 Property.value
 Property.order
 Property.recompute()
-Property.parents()
-Property.realParents()
+Property.realParents() {
+  return [Property.owner] union Property.owner.children
+}
